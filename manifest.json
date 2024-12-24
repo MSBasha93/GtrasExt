@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+  "name": "POW Data Extractor",
+  "version": "1.0",
+  "description": "Extracts POW data from wmbr.org.za/krygsgevangenes",
+  "permissions": [
+    "tabs",
+    "downloads",
+    "*://wmbr.org.za/*",
+    "storage"
+  ],
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "scripts": [ "background.js" ],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": [ "*://wmbr.org.za/krygsgevangenes*" ],
+      "js": [ "content.js" ]
+    }
+  ]
+}
